@@ -9,4 +9,5 @@ This directory stores codes to implement:
 Files:
 
 creatX.r: creat summarized gene features.
+
 pred.r: perform prediction using EI models (previously trained on 12 traits).
