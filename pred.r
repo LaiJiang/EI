@@ -3,30 +3,18 @@
 
 #############
 #load test trait data to be predicted
-path.main <- "/mnt/GREENWOOD_JBOD1/GREENWOOD_BACKUP/home/lai.jiang/Brent/Github/" 
-
-path.save <- paste0(path.main,"save/")
-
-
-path.dat <- paste0(path.main,"dat/")
-
-
-#load test traits
-
-load(paste0(path.dat, "covid19.nejm.2.RData"),verbose=TRUE)
+load( "covid19.nejm.2.RData",verbose=TRUE)
 
 #############
-path.trained <- "/mnt/GREENWOOD_JBOD1/GREENWOOD_BACKUP/home/lai.jiang/Brent/snpeff/save_rm/locus/xg/"
+#the trained EI models based on 12 traits
 
-trained.models <- list.files(path.trained)
+trained.models <- list.files()
   
 #the predicted probabilities by trained traits
 all.probs <- NULL
 for(ii.model in 1:length(trained.model)){
 
-
 load(paste0(path.trained, trained.models[ii.model]))
-
 #############################################################
 #first re-order test.x to be the same format of train.x (by selected features)
 
@@ -62,5 +50,6 @@ colnames(all.probs) <-c( "calcium" ,   "dbilirubin", "dbp",
   
 rownames(all.probs) <- rownames(test.x)
 
-save(all.probs, file=paste0(path.save,"Covid19_pred.RData"))
+
+save(all.probs, file="Covid19_pred.RData")
 
