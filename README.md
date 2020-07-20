@@ -10,4 +10,4 @@ Files:
 
 creatX.r: creat summarized gene features.
 
-pred.r: perform prediction using EI models (previously trained on 12 traits).
+pred.r: perform prediction on test genes (created by creatX.r) using EI models (previously trained on 12 traits).
